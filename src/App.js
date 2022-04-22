@@ -64,7 +64,6 @@ export default function App() {
       <div className="game-over">
         <h1>GAME OVER</h1>
         <p>Binali mo leeg ng snake mo</p>
-        <p>Final Score: {scoreFinal} </p>
       </div>
     ) : null;
   };
@@ -72,23 +71,30 @@ export default function App() {
   const Header = () => {
     const dispatch = useGameDispatch();
     const { status, score } = useGameState();
-    setGameStatus(status);
     let scoreFromSnake = score;
+    console.log(status);
     return (
       <div>
         <h2> Score: {scoreFromSnake + scoreCurrent} </h2>
+
         <div>
           <button
             onClick={() => {
               dispatch({ type: statusAction[status] });
               if (statusAction[status] === "I QUIT") {
                 endGameQuestionAnswer();
+                // setFinalScore(scoreFromSnake + scoreCurrent);
+                // console.log(scoreFromSnake);
+                // console.log(scoreCurrent);
+                // scoreFromSnake = 0;
+                // setScore(0);
+              } else if (statusAction[status] === "START") {
+                scoreFromSnake = 0;
+                setScore(0);
+                updateQuestionAnswer();
               } else {
                 updateQuestionAnswer();
               }
-              setFinalScore(scoreFromSnake + scoreCurrent);
-              scoreFromSnake = 0;
-              setScore(0);
             }}
           >
             {statusAction[status]}
