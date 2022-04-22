@@ -1,0 +1,54 @@
+.App {
+  font-family: sans-serif;
+  /* text-align: center; */
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+.cell {
+  width: 1em;
+  height: 1em;
+  margin: 0.05em;
+  border: 1px solid black;
+}
+
+.cell.snake {
+  background-color: green;
+}
+
+.cell.apple {
+  background-color: red;
+}
+
+.game-over {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border: 2px solid#282c34;
+  border-left: none;
+  border-right: none;
+  font-size: 3em;
+  max-width: 10em;
+  text-align: center;
+  background: white;
+}
+
+.grid {
+  border: 1px solid black;
+}
+
+.addSomeSpaceFromTop {
+  padding-top: 20px;
+}
+
+.justEnoughSpaceFromEachOther {
+  padding-top: 4px;
+}
